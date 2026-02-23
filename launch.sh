@@ -5,4 +5,3 @@ sleep 1
 
 polybar primary &
 polybar secondary &
-
