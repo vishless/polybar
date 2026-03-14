@@ -11,7 +11,8 @@ else
     MON_X=$(echo $GEOM | grep -oP '(?<=\+)\d+' | sed -n '1p')
 
     CAL_PX_W=300
-    CAL_X=$((MON_X + MON_W - CAL_PX_W))
+    CAL_X=$((MON_X + MON_W - CAL_PX_W - 2))
+    CAL_Y=$((BAR_HEIGHT + 2))
 
     yad --calendar \
         --undecorated \
@@ -20,5 +21,5 @@ else
         --close-on-unfocus \
         --width=$CAL_PX_W \
         --posx=$CAL_X \
-        --posy=$BAR_HEIGHT &
+        --posy=$CAL_Y &
 fi
