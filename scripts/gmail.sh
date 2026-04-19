@@ -20,5 +20,5 @@ if [[ -z "$COUNT" ]]; then
 elif [[ "$COUNT" -eq 0 ]]; then
     echo "$ICON 0"
 else
-    echo "$ICON $COUNT"
+    echo "$ICON %{F#a6e3a1}$COUNT%{F-}"
 fi
