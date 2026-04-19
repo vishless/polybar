@@ -24,6 +24,6 @@ TX2=$(cat /sys/class/net/$INTERFACE/statistics/tx_bytes)
 RX_RATE=$((RX2 - RX1))
 TX_RATE=$((TX2 - TX1))
 
-format_rate() { printf "%.3f" "$(echo "$1 / 1048576" | bc -l)"; }
+format_rate() { printf "%4.1f" "$(echo "$1 / 1048576" | bc -l)"; }
 
 echo "%{T2}$ICON%{T-} ↓$(format_rate $RX_RATE)·↑$(format_rate $TX_RATE) MB/s"
