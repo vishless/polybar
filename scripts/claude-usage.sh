@@ -7,4 +7,4 @@ fi
 val=$(cat "$file")
 five=${val%/*}
 seven=${val#*/}
-echo "${five}%/${seven}%"
+echo "${five}%·${seven}%"
