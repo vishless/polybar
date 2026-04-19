@@ -5,8 +5,9 @@ if pgrep -x yad > /dev/null; then
 else
     BAR_HEIGHT=$(awk '/^\[bar\/primary\]/{found=1} found && /^height/{print $3; exit}' ~/.config/polybar/config.ini)
 
-    # Get primary monitor geometry
-    GEOM=$(xrandr --query | grep " connected primary" | grep -oP '\d+x\d+\+\d+\+\d+')
+    # Get primary monitor geometry (use MONITOR_PRIMARY env var or default to DP-0)
+    PRIMARY_MON=${MONITOR_PRIMARY:-DP-0}
+    GEOM=$(xrandr --query | grep "^$PRIMARY_MON connected" | grep -oP '\d+x\d+\+\d+\+\d+')
     MON_W=$(echo $GEOM | cut -dx -f1)
     MON_X=$(echo $GEOM | grep -oP '(?<=\+)\d+' | sed -n '1p')
 
